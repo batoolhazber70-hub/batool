@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Hotel</title>
+
+  <style>
+    :root {
+      --primary: #2c6e91;
+      --secondary: #e8f3f8;
+      --accent: #f8b500;
+      --text: #333;
+      --light: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--secondary);
+      color: var(--text);
+    }
+
+    /* === Hero Section (الصورة الثلاثية الأبعاد + السهم) === */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('newtera.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .more-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.more-btn:hover {
+  background: white;
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+    .hero .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      font-size: 2rem;
+      color: white;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(10px); }
+      60% { transform: translateY(5px); }
+    }
+
+    /* === Header === */
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    /* === Language Selector === */
+    .lang {
+      margin-top: 10px;
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    /* === Main Content === */
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .floor {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .floor:hover {
+      transform: scale(1.03);
+    }
+
+    .floor img {
+      display: block;
+      margin: 0 auto;
+      width: 70%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    #building-details {
+  background: var(--light);
+  padding: 30px 20px;
+  margin: 40px auto;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#building-details h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+#building-details p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+    /* === Table === */
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: var(--light);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* === Contact Form === */
+    form {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      margin: 30px auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: var(--primary);
+      color: white;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+  </style>
+</head>
+<body>
+  <!-- HERO Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h1>مرحبا بكم في ناطحه السماء نيوتيرا</h1>
+      <p>استمتع باقامتك بكل تفاصيلها جيث تلتقي الاناقه و الراحه و الفخامه</p>
+      <a href="#gallery" class="more-btn">للمزيد من الصور</a>
+    </div>
+    <a href="#main-content" class="scroll-down">&#x25BC;</a>
+  </section>
+  <!-- Gallery Section -->
+<section id="gallery">
+  <h2>معرض الصور</h2>
+  <div class="gallery-grid">
+    <img src="hotel1.jpg">
+    <img src="hotel2.jpg">
+    <img src="hotel3.jpg">
+    <img src="hotel4.jpg">
+    <img src="hotel5.jpg">
+    <img src="hotel6.jpg">
+  </div>
+</section>
+
+<!-- CSS للمعرض -->
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+
+  #gallery h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+</style>
+
+  <!-- Header -->
+  <header>
+    <h2>ناطحه السحاب نيوتيرا</h2>
+    <p>مرحبا بكم في ناطحه السماء نيوتيرا، وجهتكم الأولى للراحة والفخامة.</p>
+    <div class="lang">
+      <label>اختر اللغة:</label>
+      <select>
+        <option>العربية</option>
+        <option>English</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section id="main-content">
+
+    <h2>نبذة عن البرج</h2>
+    <p>ناطحه السماء نيوتيرا هو وجهة فاخرة تجمع بين التصميم العصري والخدمات الراقية. يتميز بمرافقه المتنوعة التي تلبي جميع احتياجات الزائرين، من التسوق في المول التجاري إلى الاسترخاء في غرف الفندق الفاخرة، وصولاً إلى المركز الصحي المتكامل. كل طابق مصمم بعناية ليضمن تجربة استثنائية تجمع بين الراحة، الفخامة، والاستجمام في أجواء أنيقة ومريحة</p>
+
+    <!-- Floor 1 -->
+    <div class="floor">
+      <h3>الدور الأول: المول التجاري</h3>
+      <img src="mall.jpg" alt="المول التجاري">
+      <p>يضم المول مجموعة من أشهر العلامات التجارية والمطاعم الفاخرة لتجربة تسوق لا تُنسى.</p>
+    </div>
+
+    <!-- Floor 2 -->
+    <div class="floor">
+      <h3>الدور السادس: الفندق</h3>
+      <img src="hotel1.jpg" alt="الفندق">
+      <p>غرف فندقية فاخرة بتصميم عصري وإطلالات ساحرة لراحة تامة واستجمام مثالي.</p>
+    </div>
+
+    <!-- Floor 3 -->
+    <div class="floor">
+      <h3>الدور الثاني عشر: المركز الصحي</h3>
+      <img src="health center.jpg" alt="المركز الصحي">
+      <p>يحتوي على صالات رياضية حديثة، وساونا، ومنطقة استرخاء لتجديد نشاطك كل يوم.</p>
+    </div>
+    <!-- Building Details Section -->
+<section id="building-details">
+  <h2>بيانات المبنى</h2>
+  <p>
+     يمتد البرج ناطحه السماء نيوتيرا على مساحة واسعة تبلغ 5000 متر مربع، صُمم بعناية على ثلاثة طوابق متكاملة لتوفير تجربة متكاملة للزوار.  
+    الدور الأول مخصص للمول التجاري بمساحة 2000 متر مربع، الدور الثاني للفندق الفاخر بمساحة 1800 متر مربع،  
+    أما الدور الثالث فيضم المركز الصحي بمساحة 1200 متر مربع، مزودًا بأحدث التجهيزات لصحة واسترخاء النزلاء.  
+    المبنى محاط بمساحات خضراء ومناظر طبيعية تضيف لمسة من الهدوء والفخامة.
+  </p>
+</section>
+
+    <!-- Table -->
+    <h2>تفاصيل وتكاليف الأدوار</h2>
+    <table>
+      <tr>
+        <th>الدور</th>
+        <th>التكلفة</th>
+      </tr>
+      <tr>
+        <td>الدور الأول - المول التجاري</td>
+        <td>2,000,000 ريال</td>
+      </tr>
+      <tr>
+        <td>الدور السادس - الفندق</td>
+        <td>3,500,000 ريال</td>
+      </tr>
+      <tr>
+        <td>الدور الثاني عشر - المركز الصحي</td>
+        <td>1,800,000 ريال</td>
+      </tr>
+      <tr>
+        <th>الإجمالي</th>
+        <th>7,300,000 ريال</th>
+      </tr>
+    </table>
+
+    <!-- Contact Form -->
+    <h2>للاستفسارات والحجز</h2>
+    <form>
+      <input type="text" placeholder="الاسم الكامل" required>
+      <input type="email" placeholder="البريد الإلكتروني" required>
+      <textarea rows="4" placeholder="اكتب رسالتك هنا"></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Dream Hotel — All Rights Reserved
+  </footer>
+
+</body>
+</html>
